@@ -10,10 +10,10 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_2_4 {
       mode   => '0644',
     }
   }
-  sysctl { '(3.2.4) - Ensure all suspicious packets are logged (Scored)':
-    name      => 'net.ipv4.conf.all.log_martians',
-    permanent => 'yes',
+  sysctl { "net.ipv4.conf.all.log_martians":
+    ensure => present,
     value     => '1',
+    comment   => '(3.2.4) - Ensure all suspicious packets are logged (Scored)'
   }
   file_line { '(3.2.4) - Ensure all suspicious packets are logged (Scored)':
     ensure => present,
@@ -21,10 +21,11 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_2_4 {
     line   => 'net.ipv4.conf.all.log_martians = 1',
     match  => '^net.ipv4.conf.all.log_martians',
     }
-    sysctl { '(3.2.4) - Ensure default suspicious packets are logged (Scored)':
-      name      => 'net.ipv4.conf.default.log_martians',
-      permanent => 'yes',
+
+    sysctl { "net.ipv4.conf.default.log_martians":
+      ensure    => present,
       value     => '1',
+      comment   => '(3.2.4) - Ensure default suspicious packets are logged (Scored)'
     }
     file_line { '(3.2.4) - Ensure default suspicious packets are logged (Scored)':
       ensure => present,

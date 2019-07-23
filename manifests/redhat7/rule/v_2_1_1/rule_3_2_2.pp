@@ -10,10 +10,10 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_2_2 {
       mode   => '0644',
     }
   }
-  sysctl { '(3.2.2) - Ensure all ICMP redirects are not accepted (Scored)':
-    name      => 'net.ipv4.conf.all.accept_redirects',
-    #permanent => 'yes',
+  sysctl { "net.ipv4.conf.all.accept_redirects":
+    ensure      => present,
     value     => '0',
+    comment   => '(3.2.2) - Ensure all ICMP redirects are not accepted (Scored)'
   }
   file_line { '(3.2.2) - Ensure all ICMP redirects are not accepted (Scored)':
     ensure => present,
@@ -21,10 +21,11 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_2_2 {
     line   => 'net.ipv4.conf.all.accept_redirects = 0',
     match  => '^net.ipv4.conf.all.accept_redirects',
     }
-    sysctl { '(3.2.2) - Ensure default ICMP redirects are not accepted (Scored)':
-      name      => 'net.ipv4.conf.default.accept_redirects',
-      #permanent => 'yes',
+
+    sysctl { "net.ipv4.conf.default.accept_redirects":
+      ensure    => present,
       value     => '0',
+      comment   => '(3.2.2) - Ensure default ICMP redirects are not accepted (Scored)'
     }
     file_line { '(3.2.2) - Ensure default ICMP redirects are not accepted (Scored)':
       ensure => present,
