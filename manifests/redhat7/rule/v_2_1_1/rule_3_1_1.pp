@@ -10,10 +10,11 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_1_1 {
       mode   => '0644',
     }
   }
-  sysctl { '(3.1.1) - Ensure IP forwarding is disabled (Scored)':
-    name      => 'net.ipv4.ip_forward',
-    permanent => 'yes',
+
+  sysctl { "net.ipv4.ip_forward":
+    ensure    => present,
     value     => '0',
+    comment   => '(3.1.1) - Ensure IP forwarding is disabled (Scored)'
   }
   file_line { '(3.1.1) - Ensure IP forwarding is disabled (Scored)':
     ensure => present,
