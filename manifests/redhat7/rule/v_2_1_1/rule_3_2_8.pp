@@ -12,7 +12,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_2_8 {
   }
   sysctl { '(3.2.8) - Ensure all TCP SYN Cookies is enabled (Scored)':
     name      => 'net.ipv4.tcp_syncookies',
-    permanent => 'yes',
+    #permanent => 'yes',
     value     => '1',
   }
   file_line { '(3.2.8) - Ensure all TCP SYN Cookies is enabled (Scored)':

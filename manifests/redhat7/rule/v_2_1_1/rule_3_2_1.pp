@@ -12,7 +12,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_2_1 {
   }
   sysctl { '(3.2.1) - Ensure all source routed packets are not accepted (Scored)':
     name      => 'net.ipv4.conf.all.accept_source_route',
-    permanent => 'yes',
+    #permanent => 'yes',
     value     => '0',
   }
   file_line { '(3.2.1) - Ensure all source routed packets are not accepted (Scored)':
@@ -23,7 +23,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_2_1 {
     }
     sysctl { '(3.2.1) - Ensure default source routed packets are not accepted (Scored)':
       name      => 'net.ipv4.conf.default.accept_source_route',
-      permanent => 'yes',
+      #permanent => 'yes',
       value     => '0',
     }
     file_line { '(3.2.1) - Ensure default source routed packets are not accepted (Scored)':

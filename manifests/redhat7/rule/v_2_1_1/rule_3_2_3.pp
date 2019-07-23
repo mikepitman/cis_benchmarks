@@ -12,7 +12,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_2_3 {
   }
   sysctl { '(3.2.3) - Ensure all secure ICMP redirects are not accepted (Scored)':
     name      => 'net.ipv4.conf.all.secure_redirects',
-    permanent => 'yes',
+    #permanent => 'yes',
     value     => '0',
   }
   file_line { '(3.2.3) - Ensure all secure ICMP redirects are not accepted (Scored)':
@@ -23,7 +23,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_2_3 {
     }
     sysctl { '(3.2.3) - Ensure default secure ICMP redirects are not accepted (Scored)':
       name      => 'net.ipv4.conf.default.secure_redirects',
-      permanent => 'yes',
+      #permanent => 'yes',
       value     => '0',
     }
     file_line { '(3.2.3) - Ensure default secure ICMP redirects are not accepted (Scored)':

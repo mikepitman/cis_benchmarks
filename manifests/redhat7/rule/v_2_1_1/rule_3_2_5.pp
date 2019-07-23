@@ -12,7 +12,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_2_5 {
   }
   sysctl { '(3.2.5) - Ensure all broadcast ICMP requests are ignored (Scored)':
     name      => 'net.ipv4.icmp_echo_ignore_broadcasts',
-    permanent => 'yes',
+    #permanent => 'yes',
     value     => '1',
   }
   file_line { '(3.2.5) - Ensure all broadcast ICMP requests are ignored (Scored)':
