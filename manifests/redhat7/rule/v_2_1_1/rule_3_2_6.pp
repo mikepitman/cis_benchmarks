@@ -10,10 +10,11 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_2_6 {
       mode   => '0644',
     }
   }
-  sysctl { '(3.2.6) - Ensure all bogus ICMP responses are ignored (Scored)':
-    name      => 'net.ipv4.icmp_ignore_bogus_error_responses',
-    #permanent => 'yes',
-    value     => '1',
+
+  sysctl { "net.ipv4.icmp_ignore_bogus_error_responses":
+    ensure  => present,
+    value   => '1',
+    comment => '(3.2.6) - Ensure all bogus ICMP responses are ignored (Scored)'
   }
   file_line { '(3.2.6) - Ensure all bogus ICMP responses are ignored (Scored)':
     ensure => present,
@@ -21,7 +22,5 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_2_6 {
     line   => 'net.ipv4.icmp_ignore_bogus_error_responses = 1',
     match  => '^net.ipv4.icmp_ignore_bogus_error_responses',
     }
-
-
 
 } #EOF

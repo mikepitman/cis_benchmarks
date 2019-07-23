@@ -11,10 +11,10 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_3_2 {
     }
   }
 
-  sysctl { '(3.3.2) - Ensure all IPv6 redirects are not accepted (Scored)':
-    name  => 'net.ipv6.conf.all.accept_redirects',
-    #permanent => 'yes',
+  sysctl { "net.ipv6.conf.all.accept_redirects":
+    ensure  => present,
     value => '0',
+    comment => '(3.3.2) - Ensure all IPv6 redirects are not accepted (Scored)'
   }
   file_line { '(3.3.2) - Ensure all IPv6 redirects are not accepted (Scored)':
     ensure => present,
@@ -23,10 +23,10 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_3_2 {
     match  => '^net.ipv6.conf.all.accept_redirects',
   }
 
-  sysctl { '(3.3.2) - Ensure default IPv6 redirects are not accepted (Scored)':
-    name  => 'net.ipv6.conf.default.accept_redirects',
-    #permanent => 'yes',
+  sysctl { "net.ipv6.conf.default.accept_redirects":
+    ensure  => present,
     value => '0',
+    comment => '(3.3.2) - Ensure default IPv6 redirects are not accepted (Scored)'
   }
   file_line { '(3.3.2) - Ensure default IPv6 redirects are not accepted (Scored)':
     ensure => present,
@@ -34,6 +34,5 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_3_2 {
     line   => 'net.ipv6.conf.default.accept_redirects = 0',
     match  => '^net.ipv6.conf.default.accept_redirects',
   }
-
 
 } #EOF

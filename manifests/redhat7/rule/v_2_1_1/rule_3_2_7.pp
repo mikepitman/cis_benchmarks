@@ -11,12 +11,10 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_2_7 {
     }
   }
 
-  sysctl { "net.ipv4.conf.all.rp_filter":
+   sysctl { "net.ipv4.conf.all.rp_filter":
     ensure  => present,
     value => '1',
     comment => '(3.2.7) - Ensure all Reverse Path Filtering is enabled (Scored)'
-    #name  => 'net.ipv4.conf.all.rp_filter',
-    #permanent => 'yes',
   }
   file_line { '(3.2.7) - Ensure all Reverse Path Filtering is enabled (Scored)':
     ensure => present,
@@ -25,10 +23,10 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_2_7 {
     match  => '^net.ipv4.conf.all.rp_filter',
   }
 
-  sysctl { '(3.2.7) - Ensure default Reverse Path Filtering is enabled (Scored)':
-    name  => 'net.ipv4.conf.default.rp_filter',
-    #permanent => 'yes',
+  sysctl { "net.ipv4.conf.default.rp_filter":
+    ensure  => present,
     value => '1',
+    comment  => '(3.2.7) - Ensure default Reverse Path Filtering is enabled (Scored)',
   }
   file_line { '(3.2.7) - Ensure default Reverse Path Filtering is enabled (Scored)':
     ensure => present,
@@ -36,6 +34,4 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_2_7 {
     line   => 'net.ipv4.conf.default.rp_filter = 1',
     match  => '^net.ipv4.conf.default.rp_filter',
   }
-
-
 } #EOF

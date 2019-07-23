@@ -10,10 +10,11 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_2_8 {
       mode   => '0644',
     }
   }
-  sysctl { '(3.2.8) - Ensure all TCP SYN Cookies is enabled (Scored)':
-    name      => 'net.ipv4.tcp_syncookies',
-    #permanent => 'yes',
+
+  sysctl { "net.ipv4.tcp_syncookies":
+    ensure    => present,
     value     => '1',
+    comment   => '(3.2.8) - Ensure all TCP SYN Cookies is enabled (Scored)'
   }
   file_line { '(3.2.8) - Ensure all TCP SYN Cookies is enabled (Scored)':
     ensure => present,
@@ -21,7 +22,5 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_2_8 {
     line   => 'net.ipv4.tcp_syncookies = 1',
     match  => '^net.ipv4.tcp_syncookies',
     }
-
-
 
 } #EOF
