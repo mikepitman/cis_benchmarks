@@ -58,7 +58,7 @@ Currently, this module requires 4 additional modules:
 1. puppetlabs-stdlib
 2. herculesteam-augeasproviders_core
 2. herculesteam-augeasproviders_pam
-3. fiddyspence-sysctl
+3. herculesteam-augeasproviders_sysctl
 
 ### Beginning with cis_benchmarks
 
