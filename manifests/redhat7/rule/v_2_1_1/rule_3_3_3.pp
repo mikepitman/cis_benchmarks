@@ -13,12 +13,12 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_3_3 {
     }
   }
 
-  file_line { '(3.3.3) - Ensure IPv6 is disabled (Not Scored)':
+  file_line { '(3.3.3) - Ensure IPv6 is disabled (Not Scored L1)':
     ensure => present,
     path   => $file,
     line   => 'GRUB_CMDLINE_LINUX="ipv6.disable=1"',
     match  => '^GRUB_CMDLINE_LINUX.?=".*ipv6.disable=1.*$',
-    replace => false,
+    replace => true,
   }
 
 
