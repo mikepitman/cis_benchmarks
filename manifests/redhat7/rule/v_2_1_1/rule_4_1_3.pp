@@ -10,6 +10,13 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_4_1_3 {
     mode   => '0400',
     }
   }
+
+  # herculesteam/augeasproviders_grub
+  kernel_parameter { "audit":
+    ensure  => present,
+    value   => "1",
+  }
+
   file_line { '(4.1.3) Ensure auditing for processes that start prior to auditd is enabled (Scored L2)':
     ensure  => present,
     path    => $file,
