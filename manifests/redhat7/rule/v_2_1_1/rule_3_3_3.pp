@@ -16,7 +16,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_3_3 {
   # herculesteam/augeasproviders_grub
   kernel_parameter { "ipv6.disable":
     ensure  => present,
-    value   => "0",
+    value   => "1",
   }
 
   file_line { '(3.3.3) - Ensure IPv6 is disabled (Not Scored L1)':
