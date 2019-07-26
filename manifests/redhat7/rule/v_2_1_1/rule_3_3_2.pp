@@ -1,5 +1,5 @@
 # 3.3 IPv6
-# 3.3.2 Ensure IPv6 redirects are not accepted (Scored)
+# 3.3.2 Ensure IPv6 redirects are not accepted (Not Scored)
 class cis_benchmarks::redhat7::rule::v_2_1_1::rule_3_3_2 {
   $file = '/etc/sysctl.conf'
   if !defined(File[$file]) {
