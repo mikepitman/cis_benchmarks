@@ -1,9 +1,9 @@
 # 4.1 Configure System Accounting (auditd)
-# 4.1.1.1 Configure Data Retention
-# 4.1.1.1 Ensure audit log storage size is configured (Not Scored)
-# 4.1.1.2 Ensure system is disabled when audit logs are full (Scored)
-# 4.1.1.3 Ensure audit logs are not automatically deleted (Scored)
-# 4.1.2 Ensure auditd service is enabled (Scored)
+# 4.1.1 Configure Data Retention
+# 4.1.1.1 (L2) Ensure audit log storage size is configured (Not Scored)
+# 4.1.1.2 (L2) Ensure system is disabled when audit logs are full (Scored)
+# 4.1.1.3 (L2) Ensure audit logs are not automatically deleted (Scored)
+# 4.1.2 (L2) Ensure auditd service is enabled (Scored)
 class cis_benchmarks::redhat7::rule::v_2_1_1::rule_4_1 {
   class {'::auditd':
     max_log_file            => '10', #10mb
