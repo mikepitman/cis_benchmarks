@@ -14,7 +14,7 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_6_1_2 {
     mode   => '0644',
   }
 
-  file { '(6.1.3,6.1.7) Ensure permissions on /etc/shadow are configured (Scored)':
+  file { '(6.1.3) Ensure permissions on /etc/shadow are configured (Scored)':
     ensure => file,
     path   => '/etc/shadow',
     owner  => 'root',
@@ -22,6 +22,14 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_6_1_2 {
     mode   => '0000',
   }
 
+  # Rule for /etc/shadow not being applied to /etc/shadow-
+  file { '(6.1.7) Ensure permissions on /etc/shadow- are configured (Scored)':
+    ensure => file,
+    path   => '/etc/shadow-',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0000',
+  }
 
   file { '(6.1.4,6.1.8) Ensure permissions on /etc/group are configured (Scored)':
     ensure => file,
@@ -30,12 +38,21 @@ class cis_benchmarks::redhat7::rule::v_2_1_1::rule_6_1_2 {
     group  => 'root',
     mode   => '0644',
   }
-  file { '(6.1.5,6.1.9) Ensure permissions on /etc/gshadow are configured (Scored':
-      ensure => file,
-      path   => '/etc/gshadow',
-      owner  => 'root',
-      group  => 'root',
-      mode   => '0000',
-    }
+
+  file { '(6.1.9) Ensure permissions on /etc/gshadow are configured (Scored':
+    ensure => file,
+    path   => '/etc/gshadow',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0000',
+  }
+
+  file { '(6.1.9) Ensure permissions on /etc/gshadow- are configured (Scored':
+    ensure => file,
+    path   => '/etc/gshadow-',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0000',
+  }
 
 } #EOF
